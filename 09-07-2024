@@ -1,0 +1,11 @@
+class Solution:
+    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+        twt=0
+        wt=[]
+        for i in range(len(customers)):
+            if twt>customers[i][0]:
+                twt=twt+customers[i][1]
+            else:
+                twt=sum(customers[i])
+            wt.append(twt-customers[i][0])
+        return sum(wt)/len(customers)
